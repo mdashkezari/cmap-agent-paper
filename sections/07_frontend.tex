@@ -1,0 +1,14 @@
+\paragraph{Interaction model.}
+The user-facing interface supports conversational sessions with persistent thread history.
+Within a session, requests may alternate between high-level scientific questions (``what data are available for mixed-layer depth?'') and procedural instructions (``plot a time series in this region and period'').
+Responses may include explanatory text, generated figures, downloadable data subsets, and optional executable code.
+
+\paragraph{Artifact presentation.}
+Artifacts are treated as first-class outputs.
+Figures can be previewed inline, while data subsets are offered as downloadable files suitable for direct use in notebooks or scripts.
+This presentation helps bridge exploratory dialogue with reproducible analysis workflows.
+
+\paragraph{Traceability.}
+When tool-based operations are executed, provenance information (e.g., selected datasets/variables, bounds, and processing steps) can be summarized alongside results.
+In practice, the interface can present this provenance as an optional, compact view (e.g., an expandable tool trace that can be copied or archived).
+Such traces are important for scientific credibility and for debugging multi-step requests, consistent with broader calls for grounded, interpretable agent trajectories \citep{Yao2022ReAct}.

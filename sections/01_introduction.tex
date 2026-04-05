@@ -1,0 +1,29 @@
+Marine and environmental research increasingly relies on integrating heterogeneous observations and model products across space and time.
+Even when powerful data portals and programmatic APIs exist, the ``last-mile'' barrier often remains: scientists must discover appropriate datasets,
+resolve identifiers, construct queries, and assemble analyses across multiple systems.
+
+\cmap\ was designed to reduce these barriers by harmonizing diverse datasets into a common data and metadata structure and indexing entries by location and time,
+enabling streamlined retrieval, visualization, and systematic data integration \citep{Ashkezari2021SimonsCMAP}.
+
+An enabling condition for agentic analysis is that \cmap\ is a curated platform: datasets and metadata are vetted and harmonized by domain scientists, with stable identifiers and standardized descriptors.
+This allows \cmapagent\ to use retrieval and tool execution as mechanisms for grounding---resolving scientific intent to catalog-backed dataset/variable definitions and producing verifiable artifacts---rather than relying on a model's latent knowledge alone.
+However, effective use of a large harmonized catalog still requires users to translate scientific intent into specific catalog operations, parameter choices, and analysis workflows.
+
+Recent advances in retrieval augmentation and tool-augmented LLM agents suggest a complementary approach:
+retrieval-augmented generation improves grounding via explicit, updateable memory \citep{Lewis2020RAG},
+while reasoning--acting loops enable verifiable computation through external tools \citep{Yao2022ReAct,Karpas2022MRKL}.
+This article focuses on \cmapagent, an agentic layer built to support common CMAP workflows through a natural-language interface that executes validated operations and produces scientific artifacts.
+
+\paragraph{Contributions.}
+The paper emphasizes contributions specific to the agentic system (not the underlying \cmap\ portal):
+\begin{enumerate}[leftmargin=*]
+  \item A domain-oriented architecture for grounded, tool-augmented analysis of ocean and environmental data, integrating semantic catalog retrieval with validated computational tools.
+  \item A capability suite that operationalizes common CMAP workflows (dataset discovery, spatiotemporal subsetting, visualization, climatology, and colocalization) with artifact-centric outputs.
+  \item A reproducibility model that combines provenance records, downloadable artifacts, and optional executable SDK code to bridge conversational exploration and scripted analysis.
+  \item An evaluation plan aligned with emerging benchmarks for tool-using and data analysis agents \citep{Zhang2024DSEval,Li2025IDABench}.
+\end{enumerate}
+
+\paragraph{Paper organization.}
+Section~2 summarizes the \cmap\ data layer at a level sufficient to motivate the agentic interface.
+Sections~3--7 position the system relative to prior work and describe the knowledge base, tool layer, and interaction model.
+Sections~8--10 present representative workflows, an evaluation plan, and a discussion of limitations and future directions.

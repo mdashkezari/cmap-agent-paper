@@ -1,0 +1,17 @@
+\paragraph{Knowledge base scope.}
+The knowledge base is constructed from \cmap\ catalog metadata and supporting materials (e.g., dataset references, variable lists, and curated help content).
+The goal is to provide sufficient context for resolving scientific concepts (``surface chlorophyll''), operational constraints (valid depth/time ranges), and naming conventions (table and variable identifiers).
+
+\paragraph{Retrieval-augmented planning.}
+At each turn, the agent retrieves a small set of relevant knowledge snippets and uses them to condition the LLM's planning.
+This follows the general RAG principle of coupling generation with an explicit, updateable memory to improve factuality and traceability \citep{Lewis2020RAG}.
+In \cmapagent, retrieval is used not only to answer catalog questions, but also to reduce error rates in downstream tool selection and parameterization (e.g., choosing the correct dataset table before invoking a subsetting routine).
+
+\paragraph{Curated documents and updateability.}
+Scientific data portals evolve, with new datasets and variable definitions added over time.
+The knowledge base is therefore designed to be refreshable from the underlying \cmap\ catalog, enabling updates without retraining the language model.
+This separation is important for operational systems that must track a growing catalog while preserving consistent behavior.
+
+\paragraph{Provenance and transparency.}
+When the knowledge base is used, retrieved snippets can be summarized or cited in responses to clarify why specific datasets, variables, or processing steps were selected.
+This supports user trust and reduces the friction of debugging analysis requests in complex, multi-step workflows.

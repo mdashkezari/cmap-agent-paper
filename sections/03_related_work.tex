@@ -1,0 +1,45 @@
+Large language models (LLMs) have enabled natural-language interfaces that combine flexible instruction following with
+planning and iterative interaction with external resources.
+The design of \cmapagent\ draws on several converging research directions.
+
+\subsection{Retrieval augmentation and grounded assistants}
+Retrieval-augmented generation (RAG) couples parametric language models with an explicit, updateable external memory
+(often a dense vector index), improving factuality and enabling provenance in knowledge-intensive settings
+\citep{Lewis2020RAG}.
+In scientific contexts, retrieval augmentation has been used to answer questions over literature and technical documents,
+including agentic variants that iterate retrieval and synthesis across full-text papers \citep{Lala2023PaperQA}.
+
+\subsection{Tool-augmented LLMs and agentic reasoning}
+A complementary line of work augments LLMs with tools or actions, enabling a system to move beyond text generation
+to verifiable computation.
+ReAct interleaves reasoning and acting, demonstrating benefits for interpretability and reduced hallucination when LLMs can query external resources \citep{Yao2022ReAct}.
+Toolformer shows that models can learn when and how to invoke tools through self-supervision \citep{Schick2023Toolformer}.
+More broadly, modular neuro-symbolic architectures such as MRKL argue for combining large language components with specialized reasoning and knowledge modules \citep{Karpas2022MRKL}.
+Multi-agent formulations (e.g., AutoGen and CAMEL) study how role specialization and coordination can improve complex task completion \citep{Wu2023AutoGen,Li2023CAMEL}.
+
+\subsection{Agent evaluation and benchmarks}
+Reliable evaluation of LLM agents remains challenging because systems must plan, act, recover from errors, and manage multi-step interactions.
+General-purpose agent benchmarks have been proposed for interactive environments \citep{Liu2023AgentBench}.
+Tool-oriented benchmarks such as ToolBench (introduced alongside ToolLLM) and StableToolBench focus on large-scale evaluation of tool-use and the stability of tool APIs \citep{Qin2023ToolLLM,Guo2024StableToolBench}.
+For data analysis agents, DSEval and IDA-Bench emphasize the end-to-end lifecycle and multi-round nature of practical analysis workflows \citep{Zhang2024DSEval,Li2025IDABench}.
+
+\subsection{Scientific domain agents and data assistants}
+Recent systems demonstrate the scientific potential of tool-augmented LLM agents.
+ChemCrow integrates expert tools for chemistry and reports multi-step task success across synthesis and discovery workflows \citep{Bran2024ChemCrow}.
+More broadly, Coscientist demonstrates an agentic system that combines planning, tool use, and execution to carry out multi-step experimental procedures in an automated laboratory setting \citep{Boiko2023Coscientist}.
+In ocean science, domain-focused models such as OceanGPT aim to improve performance on oceanography tasks via instruction data and domain benchmarks \citep{Bi2023OceanGPT}.
+In the geospatial domain, GeoGPT exemplifies an autonomous workflow paradigm in which a language model plans and executes GIS tools sequentially to complete user-specified geospatial tasks \citep{Zhang2024GeoGPT}.
+Beyond domain tuning, multi-agent frameworks have been proposed for hypothesis generation and scientific exploration, including graph- and knowledge-based approaches \citep{Ghafarollahi2024SciAgents}.
+In parallel, domain-specific foundation models for geoscience and climate (e.g., K2 and ClimateGPT) illustrate a complementary strategy: improving domain knowledge and benchmarks, often paired with retrieval augmentation for factuality \citep{Deng2023K2,Thulke2024ClimateGPT}.
+These lines of work motivate \cmapagent\ as a domain-grounded, tool-executing assistant focused on scientific data discovery and analysis rather than model pretraining alone.
+
+\subsection{AI for geoscience and Earth-system research}
+The rapid growth of AI in geoscience highlights both the opportunity and the need for careful validation and transparency.
+Recent reviews synthesize progress in large-scale models, physics-informed approaches, and geoscientific applications, while emphasizing data governance, uncertainty, and interpretability challenges \citep{Zhao2024AIforGeoscience}.
+Agentic RAG systems for environmental data can be viewed as one response to these challenges: they ground domain language in curated metadata, route computations through validated tools, and return artifacts that support auditability.
+
+\subsection{Natural-language interfaces to data systems}
+Natural-language interfaces to structured data have a long history, and LLMs have renewed interest in text-to-SQL and database interfaces
+\citep{Hong2024Text2SQLSurvey}.
+However, scientific workflows typically require more than query translation; they demand validation, iterative refinement, visualization, and the production of reusable analysis artifacts.
+\cmapagent\ is positioned as an agentic layer that combines grounded catalog retrieval with domain tools and artifact-oriented outputs for ocean and environmental data analysis.

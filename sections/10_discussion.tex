@@ -1,0 +1,33 @@
+\paragraph{Scientific value.}
+The primary scientific value of an agentic interface is the reduction of ``activation energy'' from intent to executable analysis.
+In practice, many ocean and environmental workflows begin with an under-specified concept (e.g., ``surface chlorophyll''), evolve through interactive refinement (time window, region, depth), and culminate in artifacts (subsets, figures, joined datasets) that are used in notebooks and publications.
+\cmapagent\ is designed to support this lifecycle by grounding intent in catalog context, routing computation through validated tools, and returning artifacts with concise provenance.
+
+\paragraph{Why a curated data layer matters.}
+Many proposed scientific agents assume access to high-quality external resources (databases, tools, laboratory interfaces, or full-text corpora) and emphasize verifiable execution over free-form generation \citep{Bran2024ChemCrow,Boiko2023Coscientist,Lala2023PaperQA}.
+In the ocean and environmental setting, a harmonized and curated catalog provides an analogous substrate: it reduces ambiguity in dataset/variable resolution and improves the reliability of tool-mediated operations.
+We therefore mention CMAP's curation only insofar as it strengthens grounding, provenance, and reproducibility claims for the agentic layer.
+
+\paragraph{Limitations and failure modes.}
+Several limitations remain that are common to tool-using agents.
+First, ambiguous scientific language can lead to incorrect dataset/variable resolution, particularly when multiple products exist with similar semantics.
+Second, retrieval quality depends on the completeness and precision of catalog metadata and supporting documentation.
+Third, complex analyses often require methodological choices (filters, statistical models, uncertainty quantification) that should be made explicitly by users rather than inferred implicitly.
+Finally, multi-step planning can fail due to compounding errors, highlighting the need for structured self-correction and robust evaluation protocols for interactive workflows \citep{Liu2023AgentBench,Zhang2024DSEval}.
+
+\paragraph{Trust, governance, and scientific accountability.}
+Scientific assistants must address provenance, reproducibility, and data governance.
+Tool traces and artifact-based outputs provide a foundation for transparency, consistent with the broader argument that interleaving reasoning with actions yields more interpretable trajectories \citep{Yao2022ReAct}.
+However, stronger mechanisms are still needed: citation-style attribution for retrieved knowledge, guardrails for costly queries, and explicit uncertainty reporting.
+Experience from scientific agents in other domains underscores the importance of verifiable execution and careful scoping (e.g., chemistry agents that integrate tools and execution environments) \citep{Bran2024ChemCrow,Boiko2023Coscientist}.
+
+\paragraph{Future directions.}
+Several research and development directions are motivated by both the agent literature \citep{Wang2023LLMAgentSurvey,Luo2025LLMAgentSurvey} and current needs in Earth-system data analysis \citep{Zhao2024AIforGeoscience}:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Richer scientific operations.} Expand uncertainty-aware and geospatial analysis routines (e.g., quality control diagnostics, comparability checks across products, and uncertainty propagation) so that common scientific workflows can be executed end-to-end with verifiable outputs.
+  \item \textbf{Human-in-the-loop steering.} Make intermediate assumptions explicit and support structured user confirmation before expensive operations (e.g., choosing among multiple candidate products or tolerances). This is particularly important for ambiguous terminology and for workflows with many defensible methodological choices.
+  \item \textbf{Citation-granular provenance.} Tighten the coupling between retrieved snippets and generated explanations so that users can audit where specific claims or dataset choices came from, complementing artifact-level provenance.
+  \item \textbf{Cross-portal interoperability.} Extend retrieval and tool execution across multiple environmental data systems to support interdisciplinary workflows and reduce fragmentation.
+  \item \textbf{Evaluation at scale.} Develop larger task suites and automated validity checks informed by emerging benchmarks for tool use and interactive analysis \citep{Qin2023ToolLLM,Guo2024StableToolBench,Zhang2024DSEval,Li2025IDABench}.
+  \item \textbf{Domain model synergy.} Explore combinations of agentic tool execution with domain-tuned foundation models for geoscience and climate (e.g., K2, ClimateGPT) to improve terminology handling and reduce hallucinations, while preserving the verifiability benefits of tool-mediated computation \citep{Deng2023K2,Thulke2024ClimateGPT}.
+\end{itemize}

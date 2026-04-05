@@ -1,0 +1,19 @@
+Evaluation is framed around scientific utility and operational reliability rather than conversational quality alone.
+This aligns with recent calls to evaluate agents across multi-step lifecycles and interactive analysis settings \citep{Zhang2024DSEval,Li2025IDABench}.
+
+\paragraph{Benchmark prompt suite.}
+A curated suite of prompts will cover: dataset discovery, variable resolution, spatiotemporal subsetting, visualization, climatology, and colocalization.
+The suite can be seeded from maintained example prompts (included as supplementary material) and extended with domain-expert authored tasks.
+
+\paragraph{Metrics (suggested).}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Resolution correctness:} selection of the intended dataset table(s) and variable(s), judged against expert labels.
+  \item \textbf{Tool success rate:} fraction of tasks completed without execution errors, including appropriate recovery on the first retry.
+  \item \textbf{Output validity:} basic sanity checks on returned artifacts (e.g., non-empty subsets; expected dimensions; figure generation success).
+  \item \textbf{Reproducibility:} ability to reproduce artifacts from emitted code or logged parameters.
+  \item \textbf{Efficiency:} number of tool calls and end-to-end latency distributions (descriptive).
+\end{itemize}
+
+\paragraph{Baselines and comparisons.}
+Comparisons may include: (i) direct use of the CMAP SDK without agent assistance, and (ii) ``chat-only'' LLM baselines without tool execution.
+Where relevant, evaluation protocols can draw on broader agent benchmarks that emphasize interactive decision making \citep{Liu2023AgentBench} and tool-use performance \citep{Qin2023ToolLLM,Guo2024StableToolBench}.

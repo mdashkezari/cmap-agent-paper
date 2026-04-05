@@ -1,0 +1,221 @@
+\begin{thebibliography}{24}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ashkezari et~al.(2021)Ashkezari, Hagen, Denholtz, Neang, Burns,
+  Morales, Lee, Hill, and Armbrust]{Ashkezari2021SimonsCMAP}
+Mohammad~D. Ashkezari, Norland~R. Hagen, Michael Denholtz, Andrew Neang,
+  Tansy~C. Burns, Rhonda~L. Morales, Charlotte~P. Lee, Christopher~N. Hill, and
+  E.~Virginia Armbrust.
+\newblock Simons collaborative marine atlas project (simons cmap): An
+  open-source portal to share, visualize, and analyze ocean data.
+\newblock \emph{Limnology and Oceanography: Methods}, 19\penalty0 (7):\penalty0
+  488--496, 2021.
+\newblock \doi{10.1002/lom3.10439}.
+
+\bibitem[Bi et~al.(2023)Bi, Zhang, Xue, Ou, Ji, Zheng, and
+  Chen]{Bi2023OceanGPT}
+Zhen Bi, Ningyu Zhang, Yida Xue, Yixin Ou, Daxiong Ji, Guozhou Zheng, and
+  Huajun Chen.
+\newblock Oceangpt: A large language model for ocean science tasks.
+\newblock \emph{arXiv preprint arXiv:2310.02031}, 2023.
+
+\bibitem[Boiko et~al.(2023)Boiko, MacKnight, Kline, and
+  Gomes]{Boiko2023Coscientist}
+Daniil~A. Boiko, Robert MacKnight, Ben Kline, and Gabe Gomes.
+\newblock Autonomous chemical research with large language models.
+\newblock \emph{Nature}, 2023.
+\newblock \doi{10.1038/s41586-023-06792-0}.
+
+\bibitem[Bran et~al.(2024)Bran, Cox, Schilter, Baldassari, White, and
+  Schwaller]{Bran2024ChemCrow}
+Andres~M. Bran, Sam Cox, Oliver Schilter, Carlo Baldassari, Andrew~D. White,
+  and Philippe Schwaller.
+\newblock Augmenting large language models with chemistry tools.
+\newblock \emph{Nature Machine Intelligence}, 2024.
+\newblock \doi{10.1038/s42256-024-00832-8}.
+
+\bibitem[Deng et~al.(2023)Deng, Zhang, He, Xu, Chen, Shi, Fu, Zhang, Wang,
+  Zhou, Lin, and He]{Deng2023K2}
+Cheng Deng, Tianhang Zhang, Zhongmou He, Yi~Xu, Qiyuan Chen, Yuanyuan Shi,
+  Luoyi Fu, Weinan Zhang, Xinbing Wang, Chenghu Zhou, Zhouhan Lin, and Junxian
+  He.
+\newblock K2: A foundation language model for geoscience knowledge
+  understanding and utilization.
+\newblock \emph{arXiv preprint arXiv:2306.05064}, 2023.
+
+\bibitem[Ghafarollahi and Buehler(2024)]{Ghafarollahi2024SciAgents}
+Alireza Ghafarollahi and Markus~J. Buehler.
+\newblock Sciagents: Automating scientific discovery through multi-agent
+  intelligent graph reasoning.
+\newblock \emph{arXiv preprint arXiv:2409.05556}, 2024.
+
+\bibitem[Guo et~al.(2024)Guo, Cheng, Wang, Liang, Qin, Li, Liu, Sun, and
+  Liu]{Guo2024StableToolBench}
+Zhicheng Guo, Sijie Cheng, Hao Wang, Shihao Liang, Yujia Qin, Peng Li, Zhiyuan
+  Liu, Maosong Sun, and Yang Liu.
+\newblock Stabletoolbench: Towards stable large-scale benchmarking on tool
+  learning of large language models.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  ACL 2024}, 2024.
+
+\bibitem[Hong et~al.(2024)Hong, Yuan, Zhang, Chen, Dong, Huang, and
+  Huang]{Hong2024Text2SQLSurvey}
+Zijin Hong, Zheng Yuan, Qinggang Zhang, Hao Chen, Junnan Dong, Feiran Huang,
+  and Xiao Huang.
+\newblock Next-generation database interfaces: A survey of {LLM}-based
+  text-to-{SQL}.
+\newblock \emph{arXiv preprint arXiv:2406.08426}, 2024.
+
+\bibitem[Karpas et~al.(2022)Karpas, Abend, Belinkov, Lenz, Lieber, Ratner,
+  Shoham, Bata, Levine, Leyton{-}Brown, Muhlgay, Rozen, Schwartz, Shachaf,
+  Shalev{-}Shwartz, Shashua, and Tenenholtz]{Karpas2022MRKL}
+Ehud Karpas, Omri Abend, Yonatan Belinkov, Barak Lenz, Opher Lieber, Nir
+  Ratner, Yoav Shoham, Hofit Bata, Yoav Levine, Kevin Leyton{-}Brown, Dor
+  Muhlgay, Noam Rozen, Erez Schwartz, Gal Shachaf, Shai Shalev{-}Shwartz, Amnon
+  Shashua, and Moshe Tenenholtz.
+\newblock Mrkl systems: A modular, neuro-symbolic architecture that combines
+  large language models, external knowledge sources and discrete reasoning.
+\newblock \emph{arXiv preprint arXiv:2205.00445}, 2022.
+
+\bibitem[L{\'a}la et~al.(2023)L{\'a}la, O'Donoghue, Shtedritski, Cox,
+  Rodriques, and White]{Lala2023PaperQA}
+Jakub L{\'a}la, Odhran O'Donoghue, Aleksandar Shtedritski, Sam Cox, Samuel~G.
+  Rodriques, and Andrew~D. White.
+\newblock Paperqa: Retrieval-augmented generative agent for scientific
+  research.
+\newblock \emph{arXiv preprint arXiv:2312.07559}, 2023.
+
+\bibitem[Lewis et~al.(2020)Lewis, Perez, Piktus, Petroni, Karpukhin, Goyal,
+  K{\"u}ttler, Lewis, Yih, Rockt{\"a}schel, Riedel, and Kiela]{Lewis2020RAG}
+Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir
+  Karpukhin, Naman Goyal, Heinrich K{\"u}ttler, Mike Lewis, Wen{-}tau Yih, Tim
+  Rockt{\"a}schel, Sebastian Riedel, and Douwe Kiela.
+\newblock Retrieval-augmented generation for knowledge-intensive {NLP} tasks.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, 2020.
+
+\bibitem[Li et~al.(2023)Li, Hammoud, Itani, Khizbullin, and
+  Ghanem]{Li2023CAMEL}
+Guohao Li, Hasan Abed Al~Kader Hammoud, Hani Itani, Dmitrii Khizbullin, and
+  Bernard Ghanem.
+\newblock Camel: Communicative agents for ``mind'' exploration of large scale
+  language model society.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, 2023.
+
+\bibitem[Li et~al.(2025)Li, Liu, Zhu, Guo, Zheng, Deng, and
+  Jordan]{Li2025IDABench}
+Hanyu Li, Haoyu Liu, Tingyu Zhu, Tianyu Guo, Zeyu Zheng, Xiaotie Deng, and
+  Michael~I. Jordan.
+\newblock Ida-bench: Evaluating {LLM}s on interactive guided data analysis.
+\newblock \emph{arXiv preprint arXiv:2505.18223}, 2025.
+
+\bibitem[Liu et~al.(2023)Liu, Yu, Zhang, Xu, Lei, Lai, Gu, Ding, Men, Yang,
+  Zhang, Deng, Zeng, Du, Zhang, Shen, Zhang, Su, Sun, Huang, Dong, and
+  Tang]{Liu2023AgentBench}
+Xiao Liu, Hao Yu, Hanchen Zhang, Yifan Xu, Xuanyu Lei, Hanyu Lai, Yu~Gu,
+  Hangliang Ding, Kaiwen Men, Kejuan Yang, Shudan Zhang, Xiang Deng, Aohan
+  Zeng, Zhengxiao Du, Chenhui Zhang, Sheng Shen, Tianjun Zhang, Yu~Su, Huan
+  Sun, Minlie Huang, Yuxiao Dong, and Jie Tang.
+\newblock Agentbench: Evaluating {LLM}s as agents.
+\newblock \emph{arXiv preprint arXiv:2308.03688}, 2023.
+\newblock Published in ICLR 2024.
+
+\bibitem[Luo et~al.(2025)Luo, Zhang, Yuan, Zhao, Yang, Gu, Wu, Chen, Qiao,
+  Long, Tu, Luo, Ju, Xiao, Wang, Xiao, Liu, Yuan, Zhang, Jin, Zhang, Wu, Zhao,
+  Tao, Yu, and Zhang]{Luo2025LLMAgentSurvey}
+Junyu Luo, Weizhi Zhang, Ye~Yuan, Yusheng Zhao, Junwei Yang, Yiyang Gu, Bohan
+  Wu, Binqi Chen, Ziyue Qiao, Qingqing Long, Rongcheng Tu, Xiao Luo, Wei Ju,
+  Zhiping Xiao, Yifan Wang, Meng Xiao, Chenwu Liu, Jingyang Yuan, Shichang
+  Zhang, Yiqiao Jin, Fan Zhang, Xian Wu, Hanqing Zhao, Dacheng Tao, Philip~S.
+  Yu, and Ming Zhang.
+\newblock Large language model agent: A survey on methodology, applications and
+  challenges.
+\newblock \emph{arXiv preprint arXiv:2503.21460}, 2025.
+
+\bibitem[Qin et~al.(2023)Qin, Liang, Ye, Zhu, Yan, Lu, Lin, Cong, Tang, Qian,
+  Zhao, Hong, Tian, Xie, Zhou, Gerstein, Li, Liu, and Sun]{Qin2023ToolLLM}
+Yujia Qin, Shihao Liang, Yining Ye, Kunlun Zhu, Lan Yan, Yaxi Lu, Yankai Lin,
+  Xin Cong, Xiangru Tang, Bill Qian, Sihan Zhao, Lauren Hong, Runchu Tian,
+  Ruobing Xie, Jie Zhou, Mark Gerstein, Dahai Li, Zhiyuan Liu, and Maosong Sun.
+\newblock Toolllm: Facilitating large language models to master 16000+
+  real-world {APIs}.
+\newblock \emph{arXiv preprint arXiv:2307.16789}, 2023.
+
+\bibitem[Schick et~al.(2023)Schick, Dwivedi{-}Yu, Dess{\`\i}, Raileanu, Lomeli,
+  Zettlemoyer, Cancedda, and Scialom]{Schick2023Toolformer}
+Timo Schick, Jane Dwivedi{-}Yu, Roberto Dess{\`\i}, Roberta Raileanu, Maria
+  Lomeli, Luke Zettlemoyer, Nicola Cancedda, and Thomas Scialom.
+\newblock Toolformer: Language models can teach themselves to use tools.
+\newblock \emph{Advances in Neural Information Processing Systems (NeurIPS)},
+  2023.
+
+\bibitem[Thulke et~al.(2024)Thulke, Gao, Pelser, Brune, Jalota, Fok, Ramos, van
+  Wyk, Nasir, Goldstein, Tragemann, Nguyen, Fowler, Stanco, Gabriel, Taylor,
+  Moro, Tsymbalov, de~Waal, Matusov, Yaghi, Shihadah, Ney, Dugast, Dotan, and
+  Erasmus]{Thulke2024ClimateGPT}
+David Thulke, Yingbo Gao, Petrus Pelser, Rein Brune, Rricha Jalota, Floris Fok,
+  Michael Ramos, Ian van Wyk, Abdallah Nasir, Hayden Goldstein, Taylor
+  Tragemann, Katie Nguyen, Ariana Fowler, Andrew Stanco, Jon Gabriel, Jordan
+  Taylor, Dean Moro, Evgenii Tsymbalov, Juliette de~Waal, Evgeny Matusov, Mudar
+  Yaghi, Mohammad Shihadah, Hermann Ney, Christian Dugast, Jonathan Dotan, and
+  Daniel Erasmus.
+\newblock Climategpt: Towards ai synthesizing interdisciplinary research on
+  climate change.
+\newblock \emph{arXiv preprint arXiv:2401.09646}, 2024.
+
+\bibitem[Wang et~al.(2023)Wang, Ma, Feng, Zhang, Yang, Zhang, Chen, Tang, Chen,
+  Lin, Zhao, Wei, and Wen]{Wang2023LLMAgentSurvey}
+Lei Wang, Chen Ma, Xueyang Feng, Zeyu Zhang, Hao Yang, Jingsen Zhang, Zhiyuan
+  Chen, Jiakai Tang, Xu~Chen, Yankai Lin, Wayne~Xin Zhao, Zhewei Wei, and
+  Ji-Rong Wen.
+\newblock A survey on large language model based autonomous agents.
+\newblock \emph{arXiv preprint arXiv:2308.11432}, 2023.
+
+\bibitem[Wu et~al.(2023)Wu, Bansal, Zhang, Wu, Li, Zhu, Jiang, Zhang, Zhang,
+  Liu, Awadallah, White, Burger, and Wang]{Wu2023AutoGen}
+Qingyun Wu, Gagan Bansal, Jieyu Zhang, Yiran Wu, Beibin Li, Erkang Zhu,
+  Li~Jiang, Xiaoyun Zhang, Shaokun Zhang, Jiale Liu, Ahmed~Hassan Awadallah,
+  Ryen~W. White, Doug Burger, and Chi Wang.
+\newblock Autogen: Enabling next-gen {LLM} applications via multi-agent
+  conversation.
+\newblock \emph{arXiv preprint arXiv:2308.08155}, 2023.
+
+\bibitem[Yao et~al.(2023)Yao, Zhao, Yu, Du, Shafran, Narasimhan, and
+  Cao]{Yao2022ReAct}
+Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan,
+  and Yuan Cao.
+\newblock React: Synergizing reasoning and acting in language models.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2023.
+
+\bibitem[Zhang et~al.(2024{\natexlab{a}})Zhang, Wei, He, and
+  Yu]{Zhang2024GeoGPT}
+Yifan Zhang, Cheng Wei, Zhengting He, and Wenhao Yu.
+\newblock Geogpt: An assistant for understanding and processing geospatial
+  tasks.
+\newblock \emph{International Journal of Applied Earth Observation and
+  Geoinformation}, 131:\penalty0 103976, 2024{\natexlab{a}}.
+\newblock \doi{10.1016/j.jag.2024.103976}.
+
+\bibitem[Zhang et~al.(2024{\natexlab{b}})Zhang, Jiang, Han, Chen, Yang, and
+  Ren]{Zhang2024DSEval}
+Yuge Zhang, Qiyang Jiang, Xingyu Han, Nan Chen, Yuqing Yang, and Kan Ren.
+\newblock Benchmarking data science agents.
+\newblock In \emph{Proceedings of the 62nd Annual Meeting of the Association
+  for Computational Linguistics (ACL 2024)}, 2024{\natexlab{b}}.
+
+\bibitem[Zhao et~al.(2024)Zhao, Wang, Ouyang, Chen, Liu, Zhang, Yu, Wang, Xie,
+  Li, et~al.]{Zhao2024AIforGeoscience}
+Tianjie Zhao, Sheng Wang, Chaojun Ouyang, Min Chen, Chenying Liu, Jin Zhang,
+  Long Yu, Fei Wang, Yong Xie, Jun Li, et~al.
+\newblock Artificial intelligence for geoscience: Progress, challenges, and
+  perspectives.
+\newblock \emph{The Innovation}, 5\penalty0 (5):\penalty0 100691, 2024.
+\newblock \doi{10.1016/j.xinn.2024.100691}.
+
+\end{thebibliography}

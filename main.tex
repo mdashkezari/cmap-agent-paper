@@ -1,0 +1,92 @@
+\documentclass[11pt]{article}
+
+% --- Packages ---
+\usepackage[margin=1in]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\else
+  \usepackage{fontspec}
+  \setmainfont{DejaVu Serif}
+\fi
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{enumitem}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\DontPrintSemicolon
+\SetKwInput{KwRequire}{Require}
+\SetKwInput{KwReturn}{Return}
+\usepackage[authoryear,round]{natbib}
+\usepackage{hyperref}
+
+% --- Hyperref setup ---
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+% --- Convenience macros ---
+\newcommand{\cmap}{Simons CMAP}
+\newcommand{\cmapagent}{CMAP Agent}
+
+% --- Vignette formatting ---
+\newenvironment{vignettebox}{\begin{quote}\small}{\end{quote}}
+\newcommand{\vignettefield}[2]{\textbf{#1:} #2\\}
+
+\title{Agentic Retrieval-Augmented Interface for Natural-Language Data Discovery and Analysis in Environmental Sciences}
+%\author{Mohammad D. Ashkezari \and \textit{(co-authors TBD)}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\input{sections/00_abstract}
+\end{abstract}
+
+\section{Introduction}
+\input{sections/01_introduction}
+
+\section{Background: Simons CMAP as a Harmonized Earth-System Data Layer}
+\input{sections/02_background_cmap}
+
+\section{Related Work}
+\input{sections/03_related_work}
+
+\section{System Overview}
+\input{sections/04_system_overview}
+
+\section{Knowledge Base and Retrieval}
+\input{sections/05_kb_retrieval}
+
+\section{Tooling and Execution}
+\input{sections/06_tools}
+
+\section{User Interface and Interaction Model}
+\input{sections/07_frontend}
+
+\section{Representative Workflows and Applications}
+\input{sections/08_use_cases}
+
+\section{Evaluation Plan}
+\input{sections/09_evaluation}
+
+\section{Discussion and Limitations}
+\input{sections/10_discussion}
+
+\section{Conclusion}
+\input{sections/11_conclusion}
+
+\section*{Reproducibility and Availability}
+\input{sections/12_reproducibility}
+
+\bibliographystyle{plainnat}
+\bibliography{bib/references}
+
+\end{document}

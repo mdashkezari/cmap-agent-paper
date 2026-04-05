@@ -1,0 +1,98 @@
+A central design goal is that scientific operations are executed through explicit computational tools, while the language model focuses on translating intent into a validated sequence of actions.
+This aligns with research on tool-augmented agents, where external actions provide verifiable intermediate results and reduce reliance on unconstrained text generation \citep{Yao2022ReAct,Karpas2022MRKL}.
+
+\subsection{Capability categories}
+The tool layer operationalizes common workflows in ocean and environmental data analysis:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Discovery and resolution:} identify candidate datasets and variables, interpret metadata, and disambiguate naming.
+  \item \textbf{Data access:} retrieve spatiotemporal subsets with user-defined bounds and sampling options.
+  \item \textbf{Analysis:} compute derived products such as climatologies and summary statistics.
+  \item \textbf{Integration:} colocalize datasets by joining observations and gridded products within spatial/temporal tolerances.
+  \item \textbf{Visualization:} generate quick-look figures (maps, time series) that summarize retrieved subsets.
+  \item \textbf{Reproducible code:} optionally emit executable code that reproduces the same operations in the CMAP SDK.
+\end{itemize}
+
+\subsection{Representative tool outputs}
+Many interactions produce both a narrative response and scientific artifacts (data files, figures).
+Table~\ref{tab:capabilities} summarizes the primary capability classes and expected outputs.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{0.34\linewidth}p{0.61\linewidth}@{}}
+\toprule
+\textbf{Capability} & \textbf{Typical outputs} \\
+\midrule
+Catalog discovery and variable resolution & Candidate datasets/variables with brief justification grounded in catalog context \\
+Spatiotemporal subsetting & Downloadable data subset (e.g., Parquet/CSV) with provenance notes \\
+Quick-look visualization & Map plots or time-series figures derived from retrieved subsets \\
+Climatology and summaries & Climatology fields or seasonal cycles; summary tables/figures \\
+Colocalization / dataset integration & Joined tables for multi-dataset analysis; tolerance settings and diagnostics \\
+Code emission (optional) & Executable SDK code reproducing the performed operations \\
+\bottomrule
+\end{tabular}
+\caption{Capability-oriented summary of \cmapagent. The underlying implementation exposes these functions through structured tool contracts; the main text emphasizes scientific functionality rather than specific software frameworks.}
+\label{tab:capabilities}
+\end{table}
+
+\subsection{Iterative planning and tool execution loop}
+At the core of \cmapagent\ is a per-turn runner that alternates between (i) requesting a structured plan from the language model and (ii) executing the requested tool calls.
+The runner enforces a strict JSON protocol with two message types: \texttt{tool\_call} (a list of tool invocations) and \texttt{final} (the user-facing response).
+It also implements practical guardrails that matter for scientific use: a configurable tool-call budget, caching of identical tool calls to avoid accidental loops, sanitization of co-localization tolerances when they were not specified by the user, and aggregation of tool-produced artifacts (e.g., plots and data extracts) into the final response.
+Algorithm~\ref{alg:execute_plan} summarizes this control flow in compact pseudocode format.
+
+\begin{algorithm}[!ht]
+\caption{Per-turn agent runner (conceptual) implementing an iterative plan--execute--observe loop with key guardrails: strict structured outputs, bounded tool usage, per-turn deduplication, co-localization tolerance sanitization, and aggregation of tool-produced artifacts and optional reproducible code into the final response.}
+\label{alg:execute_plan}
+\small
+\SetAlgoNlRelativeSize{-1}
+\DontPrintSemicolon
+\KwRequire{system prompt; conversation history; user message; execution context; tool-call budget $B$}
+\KwResult{final response (message + optional code + artifact references), and tool trace for provenance}
+
+$M \leftarrow [\textsf{SYSTEM}(\texttt{system\_prompt})] + \textsf{conversation} + [\textsf{USER}(\texttt{user\_message})]$\;
+$T \leftarrow [\ ]$; $A \leftarrow [\ ]$; $C \leftarrow [\ ]$; $\mathcal{H} \leftarrow \emptyset$ \tcp*[r]{trace, artifacts, code, dedup cache}\;
+$b \leftarrow \max(0,B)$; $r_{\textsf{json}}\leftarrow 0$; $r_{\textsf{force}}\leftarrow 0$\;
+\If{$b = 0$}{Append to $M$ an instruction that tools are disabled and the planner must return \texttt{final}.}\;
+
+\Repeat{a \texttt{final} response is produced}{
+  $\texttt{resp} \leftarrow \textsc{LLMComplete}(M)$\;
+  \If{\textsc{StrictJSONWithType}(\texttt{resp}) is false}{
+    \If{$r_{\textsf{json}}<2$}{
+      $r_{\textsf{json}}\leftarrow r_{\textsf{json}}+1$; Append a JSON-only repair instruction to $M$; \textbf{continue}\;
+    }
+    \KwRet{\textsc{FinalizeFromText}(\texttt{resp},A,C), $T$}\;
+  }
+
+  $(\texttt{kind},\texttt{payload}) \leftarrow \textsc{ParsePlanOrFinal}(\texttt{resp})$\;
+  \If{$\texttt{kind}=\texttt{final}$}{
+    $\texttt{final} \leftarrow \textsc{ValidateOrStringify}(\texttt{payload})$; merge $A$ and (optionally) $C$ into \texttt{final}\;
+    \If{\textsc{RequestRequiresTools}(\texttt{user\_message}) and $T$ is empty and $b>0$ and $r_{\textsf{force}}<2$}{
+      $r_{\textsf{force}}\leftarrow r_{\textsf{force}}+1$; append an instruction forcing a \texttt{tool\_call} response to $M$; \textbf{continue}\;
+    }
+    \KwRet{\texttt{final}, $T$}\;
+  }
+  \If{$\texttt{kind}\neq\texttt{tool\_call}$ or $b=0$}{Append to $M$ an instruction to return \texttt{final}; \textbf{continue}}\;
+
+  $R \leftarrow [\ ]$ \tcp*[r]{compact results for planner}\;
+  \ForEach{requested tool call $(\tau,\alpha)$ \textbf{while} $b>0$}{
+    \If{$\tau=\texttt{cmap.colocalize}$}{$\alpha \leftarrow \textsc{SanitizeColocalizeArgs}(\texttt{user\_message},\alpha)$}\;
+    $k \leftarrow (\tau,\textsc{CanonicalArgs}(\alpha))$\;
+    \uIf{$k \in \mathcal{H}$}{
+      $\texttt{compact} \leftarrow \mathcal{H}[k]$; record \texttt{cached} in $T$\;
+    }
+    \Else{
+      $\texttt{result} \leftarrow \textsc{RunTool}(\tau,\alpha,\texttt{exec\_context})$\;
+      normalize artifacts into $A$; append any emitted SDK code into $C$\;
+      $\texttt{compact} \leftarrow \textsc{SummarizeForPlanner}(\tau,\texttt{result})$; set $\mathcal{H}[k]\leftarrow\texttt{compact}$\;
+      record status/errors in $T$; $b\leftarrow b-1$\;
+    }
+    Append \texttt{compact} to $R$\;
+  }
+  Append a compact \texttt{TOOL\_RESULTS} observation containing $R$ to $M$\;
+}
+\end{algorithm}
+
+\subsection{Validation and failure modes}
+Inputs to computational tools are validated (e.g., numeric bounds, required parameters, tolerance ranges), and intermediate failures can be surfaced to the user with actionable messages.
+This design supports iterative refinement, which is characteristic of real-world analysis and is emphasized by recent evaluations of data analysis agents \citep{Zhang2024DSEval,Li2025IDABench}.

@@ -1,0 +1,26 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Background: Simons CMAP as a Harmonized Earth-System Data Layer}{}% 2
+\BOOKMARK [1][-]{section.3}{Related Work}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Retrieval augmentation and grounded assistants}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Tool-augmented LLMs and agentic reasoning}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Agent evaluation and benchmarks}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Scientific domain agents and data assistants}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.5}{AI for geoscience and Earth-system research}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.6}{Natural-language interfaces to data systems}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{System Overview}{}% 10
+\BOOKMARK [1][-]{section.5}{Knowledge Base and Retrieval}{}% 11
+\BOOKMARK [1][-]{section.6}{Tooling and Execution}{}% 12
+\BOOKMARK [2][-]{subsection.6.1}{Capability categories}{section.6}% 13
+\BOOKMARK [2][-]{subsection.6.2}{Representative tool outputs}{section.6}% 14
+\BOOKMARK [2][-]{subsection.6.3}{Iterative planning and tool execution loop}{section.6}% 15
+\BOOKMARK [2][-]{subsection.6.4}{Validation and failure modes}{section.6}% 16
+\BOOKMARK [1][-]{section.7}{User Interface and Interaction Model}{}% 17
+\BOOKMARK [1][-]{section.8}{Representative Workflows and Applications}{}% 18
+\BOOKMARK [2][-]{subsection.8.1}{Workflow 1: Concept-driven discovery and bounded data extraction}{section.8}% 19
+\BOOKMARK [2][-]{subsection.8.2}{Workflow 2: Rapid visualization and climatological summaries}{section.8}% 20
+\BOOKMARK [2][-]{subsection.8.3}{Workflow 3: Dataset integration by colocalization}{section.8}% 21
+\BOOKMARK [2][-]{subsection.8.4}{Reporting provenance to support scientific trust}{section.8}% 22
+\BOOKMARK [2][-]{subsection.8.5}{Session vignettes with artifacts and provenance}{section.8}% 23
+\BOOKMARK [1][-]{section.9}{Evaluation Plan}{}% 24
+\BOOKMARK [1][-]{section.10}{Discussion and Limitations}{}% 25
+\BOOKMARK [1][-]{section.11}{Conclusion}{}% 26

@@ -1,0 +1,21 @@
+{
+  "title": "Vignette title",
+  "prompt": "Exact user prompt text",
+  "provenance": [
+    {
+      "tool": "catalog.search_kb_first",
+      "summary": "one-line description of why it was called and key parameters (e.g., ROI/time)"
+    },
+    {
+      "tool": "cmap.space_time",
+      "summary": "\u2026"
+    }
+  ],
+  "artifacts": [
+    {
+      "id_or_name": "artifact filename or persistent URL",
+      "kind": "csv|parquet|png|pdf|other",
+      "description": "one line"
+    }
+  ]
+}
