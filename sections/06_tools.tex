@@ -8,7 +8,7 @@ The tool layer operationalizes common workflows in ocean and environmental data 
   \item \textbf{Data access:} retrieve spatiotemporal subsets with user-defined bounds and sampling options.
   \item \textbf{Analysis:} compute derived products such as climatologies and summary statistics.
   \item \textbf{Integration:} colocalize datasets by joining observations and gridded products within spatial/temporal tolerances.
-  \item \textbf{Visualization:} generate quick-look figures (maps, time series) that summarize retrieved subsets.
+  \item \textbf{Visualization:} generate quick-look figures that summarize retrieved subsets.
   \item \textbf{Reproducible code:} optionally emit executable code that reproduces the same operations in the CMAP SDK.
 \end{itemize}
 
@@ -31,7 +31,7 @@ Colocalization / dataset integration & Joined tables for multi-dataset analysis;
 Code emission (optional) & Executable SDK code reproducing the performed operations \\
 \bottomrule
 \end{tabular}
-\caption{Capability-oriented summary of \cmapagent. The underlying implementation exposes these functions through structured tool contracts; the main text emphasizes scientific functionality rather than specific software frameworks.}
+\caption{Capability-oriented summary of \cmapagent.}
 \label{tab:capabilities}
 \end{table}
 
@@ -39,7 +39,7 @@ Code emission (optional) & Executable SDK code reproducing the performed operati
 At the core of \cmapagent\ is a per-turn runner that alternates between (i) requesting a structured plan from the language model and (ii) executing the requested tool calls.
 The runner enforces a strict JSON protocol with two message types: \texttt{tool\_call} (a list of tool invocations) and \texttt{final} (the user-facing response).
 It also implements practical guardrails that matter for scientific use: a configurable tool-call budget, caching of identical tool calls to avoid accidental loops, sanitization of co-localization tolerances when they were not specified by the user, and aggregation of tool-produced artifacts (e.g., plots and data extracts) into the final response.
-Algorithm~\ref{alg:execute_plan} summarizes this control flow in compact pseudocode format.
+Algorithm~\ref{alg:execute_plan} summarizes this control flow in compact pseudocode listing.
 
 \begin{algorithm}[!ht]
 \caption{Per-turn agent runner (conceptual) implementing an iterative plan--execute--observe loop with key guardrails: strict structured outputs, bounded tool usage, per-turn deduplication, co-localization tolerance sanitization, and aggregation of tool-produced artifacts and optional reproducible code into the final response.}

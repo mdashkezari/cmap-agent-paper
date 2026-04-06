@@ -21,6 +21,8 @@
 \SetKwInput{KwRequire}{Require}
 \SetKwInput{KwReturn}{Return}
 \usepackage[authoryear,round]{natbib}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
 \usepackage{hyperref}
 
 % --- Hyperref setup ---
@@ -36,8 +38,19 @@
 \newcommand{\cmapagent}{CMAP Agent}
 
 % --- Vignette formatting ---
-\newenvironment{vignettebox}{\begin{quote}\small}{\end{quote}}
-\newcommand{\vignettefield}[2]{\textbf{#1:} #2\\}
+% Styled to resemble a lightweight "excerpt" callout (light-blue background, monospace body).
+\newtcolorbox{vignettebox}{enhanced,
+  colback=blue!6,
+  colframe=blue!35,
+  boxrule=0.5pt,
+  arc=0pt,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  boxsep=2pt,
+  before upper=\ttfamily\small}
+% Field macros: keep structure (Prompt / Provenance / Artifacts).
+% Prompt is styled in dark gray (not red), with a blank line before provenance.
+\newcommand{\vignetteprompt}[1]{\textbf{Prompt:}\par\textcolor{black!70}{#1}\par\medskip}
+\newcommand{\vignettefield}[2]{\textbf{#1:}\par#2\par}
 
 \title{Agentic Retrieval-Augmented Interface for Natural-Language Data Discovery and Analysis in Environmental Sciences}
 %\author{Mohammad D. Ashkezari \and \textit{(co-authors TBD)}}
