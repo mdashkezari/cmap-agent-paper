@@ -1,3 +1,12 @@
 notrack
 **/.DS_Store
 **/.vscode
+cmap_agent.synctext.gz
+cmap_agent.log
+cmap_agent.aux
+cmap_agent.bbl
+cmap_agent.blg
+cmap_agent.fls
+cmap_agent.out
+cmap_agent.run.xml
+cmap_agent.toc
