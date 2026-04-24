@@ -15,11 +15,11 @@ Rather than asking users to learn internal catalog identifiers and calling conve
 \paragraph{Grounding and verifiability.}
 Two mechanisms are central.
 First, retrieval over a curated knowledge base provides domain context (catalog entries, variable semantics, and usage guidance) to reduce hallucination and improve correct dataset selection.
-Second, analyses are executed through explicit tools with constrained inputs and programmatic validation, so that computations and figures are produced by deterministic routines rather than free-form text.
+Second, analyses are executed through explicit tools with constrained inputs and programmatic validation, so that computations and figures are produced by deterministic routines rather than synthesized from the language model's free-form text generation.
 
 \paragraph{Artifact-oriented outputs and reproducibility.}
 Outputs are centered on scientific artifacts: subsets of data, figures, and (when appropriate) reusable code snippets that reproduce the same operations in the CMAP software ecosystem.
-This design supports interactive exploration while enabling transition to scripted workflows for publication-quality analyses.
+This design supports interactive exploration while enabling transition to scripted workflows for reproducible analyses.
 
 \paragraph{Separation of scientific semantics from implementation.}
 While the system is realized as a concrete software stack, the scientific claims in this paper emphasize capability and behavior rather than the specifics of frameworks or deployment.

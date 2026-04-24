@@ -2,17 +2,20 @@ Marine and environmental research increasingly relies on integrating heterogeneo
 Even when powerful data portals and programmatic APIs exist, the ``last-mile'' barrier often remains: scientists must discover appropriate datasets,
 resolve identifiers, construct queries, and assemble analyses across multiple systems.
 
-\cmap\ was designed to reduce these barriers by harmonizing diverse datasets into a common data and metadata structure and indexing entries by location and time,
-enabling streamlined retrieval, visualization, and systematic data integration \citep{Ashkezari2021SimonsCMAP}.
+Recent advances in large language models (LLMs) suggest a complementary approach to closing this last-mile gap.
+Retrieval-augmented generation improves grounding and factuality by coupling generation with an explicit, updateable external memory \citep{Lewis2020RAG},
+while reasoning--acting loops enable verifiable computation by interleaving generation with calls to external tools \citep{Yao2022ReAct,Karpas2022MRKL}.
+Together, these ideas make it possible to build natural-language interfaces that translate scientific intent into a sequence of validated, tool-executed operations rather than free-form prose, and that return concrete, inspectable artifacts back to the user.
 
-An enabling condition for agentic analysis is that \cmap\ is a curated platform: datasets and metadata are vetted and harmonized by domain scientists, with stable identifiers and standardized descriptors.
+The Simons Collaborative Marine Atlas Project (CMAP) is a curated data system designed to reduce these barriers by harmonizing diverse ocean and atmospheric datasets into a common data and metadata structure and indexing entries by location and time \citep{Ashkezari2021SimonsCMAP}.
+Beyond raw data retrieval, CMAP exposes a suite of analytic primitives---spatiotemporal subsetting, climatological aggregation, depth profiling, and colocalization across in-situ and gridded products---through an interactive web portal and the open-source \texttt{pycmap} SDK.
+Although these interfaces are powerful, users still face recurring frictions when working with a large harmonized catalog: (i) discovering relevant datasets across hundreds of products, (ii) resolving the exact table and variable identifiers expected by the SDK, and (iii) assembling multi-step workflows (e.g., retrieve $\rightarrow$ visualize $\rightarrow$ integrate $\rightarrow$ analyze) without manually orchestrating every intermediate command.
+
+An enabling condition for agentic analysis is that CMAP is a curated platform: datasets and metadata are vetted and harmonized by domain scientists, with stable identifiers and standardized descriptors.
 This allows \cmapagent\ to use retrieval and tool execution as mechanisms for grounding---resolving scientific intent to catalog-backed dataset/variable definitions and producing verifiable artifacts---rather than relying on a model's latent knowledge alone.
-However, effective use of a large harmonized catalog still requires users to translate scientific intent into specific catalog operations, parameter choices, and analysis workflows.
+In practice, this means a researcher can ask a question in their own scientific language and receive an answer that is anchored to specific, named datasets in the catalog, executed by validated routines, and accompanied by the data files, figures, and code that produced it.
 
-Recent advances in retrieval augmentation and tool-augmented LLM agents suggest a complementary approach:
-retrieval-augmented generation improves grounding via explicit, updateable memory \citep{Lewis2020RAG},
-while reasoning--acting loops enable verifiable computation through external tools \citep{Yao2022ReAct,Karpas2022MRKL}.
-This article focuses on \cmapagent, an agentic layer built to support common CMAP workflows through a natural-language interface that executes validated operations and produces scientific artifacts.
+Here we focus on \cmapagent, an agentic layer built to support CMAP workflows through a natural-language interface that executes validated operations and produces scientific artifacts.
 
 \paragraph{Contributions.}
 The paper emphasizes contributions specific to the agentic system (not the underlying \cmap\ portal):
@@ -24,6 +27,6 @@ The paper emphasizes contributions specific to the agentic system (not the under
 \end{enumerate}
 
 \paragraph{Paper organization.}
-Section~2 summarizes the \cmap\ data layer at a level sufficient to motivate the agentic interface.
+Section~2 briefly characterizes the \cmap\ data layer as a curated substrate for agentic interaction.
 Sections~3--7 position the system relative to prior work and describe the knowledge base, tool layer, and interaction model.
 Sections~8--10 present representative workflows, an evaluation plan, and a discussion of limitations and future directions.

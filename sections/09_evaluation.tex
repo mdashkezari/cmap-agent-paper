@@ -1,6 +1,12 @@
 Evaluation is framed around scientific utility and operational reliability rather than conversational quality alone.
 This aligns with recent calls to evaluate agents across multi-step lifecycles and interactive analysis settings \citep{Zhang2024DSEval,Li2025IDABench}.
 
+\paragraph{Current internal retrieval evaluation.}
+A first evaluation has been performed at the level of the retrieval substrate, which provides the grounding evidence used both for question answering and for tool selection.
+In an initial study ($N=108$) of reference-grounded queries whose answers are known to exist in the indexed corpus, the correct evidence passage is retrieved within the top-$32$ results in $95.4\%$ of cases, with median rank $1$.
+These results should be interpreted as a preliminary characterization of retrieval robustness for technically specific facts (e.g., numeric thresholds and protocol details), rather than as an end-to-end assessment of the full agent.
+A comprehensive evaluation that exercises the complete plan--execute--observe loop (including dataset/variable resolution, parameterization, and artifact production), curated and reviewed by domain scientists, is in preparation.
+
 \paragraph{Benchmark prompt suite.}
 A curated suite of prompts will cover: dataset discovery, variable resolution, spatiotemporal subsetting, visualization, climatology, and colocalization.
 The suite can be seeded from maintained example prompts (included as supplementary material) and extended with domain-expert authored tasks.

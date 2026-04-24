@@ -1,19 +1,9 @@
-This section will summarize the \cmap\ data layer only as needed to contextualize the agentic system.
+This section briefly characterizes the \cmap\ data layer at the level needed to contextualize the agentic system; a fuller account of the underlying portal is given in \citet{Ashkezari2021SimonsCMAP}.
 \cmap\ harmonizes heterogeneous datasets into a common structure and indexes entries by location and time, enabling efficient retrieval and integration. The system exposes these capabilities via interactive and programmatic interfaces.
 
 \paragraph{Curation and harmonization as a substrate for agents.}
 CMAP is assembled through domain-scientist curation: ingest and documentation practices standardize metadata, references, and variable semantics across heterogeneous sources.
-For an agentic interface, this curated substrate matters because retrieval can anchor decisions in vetted descriptors (e.g., units, coverage, provenance) and tools can operate on consistent identifiers.
-In what follows we treat these properties as a scientific enabler of reliable discovery and integration rather than as an implementation detail.
-
-\paragraph{Motivation for an agentic layer.}
-Although \cmap\ provides graphical and programmatic interfaces, users often still face:
-(i) dataset discovery across a large catalog,
-(ii) variable-name resolution, and
-(iii) assembly of multi-step workflows (e.g., retrieve $\rightarrow$ visualize $\rightarrow$ integrate $\rightarrow$ analysis).
-\cmapagent\ is designed to reduce these frictions by coupling semantic retrieval with explicit tool execution.
-
-% TODO: Add a concise overview of CMAP catalog concepts used by CMAP Agent:
-% - dataset table name, variable short name, coverage metadata
-% - ROI (lat/lon bounding box) and time range
-% - common analysis primitives used by pycmap (space_time, time_series, depth_profile, climatology, Sample/colocalize)
+For an agentic interface, this curated substrate has two concrete consequences.
+First, retrieval can anchor decisions in vetted descriptors---units, spatial and temporal coverage, instrument or model provenance---so that the agent's choice of a dataset or variable is grounded in catalog facts rather than inferred from the model's latent knowledge.
+Second, tools can operate on consistent identifiers (table and variable short names) without per-dataset special cases, which is what makes a single, generic execution layer practical across hundreds of products.
+We therefore treat the curated layer as a scientific enabler of reliable discovery and integration, not merely as an implementation convenience.
