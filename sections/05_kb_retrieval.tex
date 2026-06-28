@@ -1,24 +1,24 @@
-\paragraph{Knowledge base scope.}
-The knowledge base is constructed from \cmap\ catalog descriptors and supporting materials (dataset references, variable lists, and curated help content), and it is augmented with full-text scientific documents associated with individual datasets.
-This composition supports two complementary goals: (i) reliable resolution of datasets, variables, and operational constraints (e.g., valid ranges in depth and time), and (ii) access to methodological detail that is often absent from catalog metadata (e.g., sampling protocols, calibration procedures, and quality-control criteria).
-
-\paragraph{Reference-grounded retrieval from dataset literature.}
-Beyond catalog descriptors, many scientifically consequential facts are documented only in the literature that accompanies a dataset.
-To make these facts retrievable, \cmapagent\ ingests and indexes dataset-linked reference documents (papers, technical reports, and documentation) on a per-dataset basis.
+\subsection{Scope and grounding in dataset literature}
+The knowledge base is constructed from \cmap\ catalog descriptors and supporting materials---dataset references, variable lists, and curated help content---and is augmented with full-text scientific documents associated with individual datasets.
+This composition supports two complementary goals: reliable resolution of datasets, variables, and operational constraints (e.g., valid ranges in depth and time), and access to methodological detail that is often absent from catalog metadata (e.g., sampling protocols, calibration procedures, and quality-control criteria).
+Beyond catalog descriptors, many scientifically consequential facts are documented only in the literature that accompanies a dataset, and to make these facts retrievable the system ingests and indexes dataset-linked reference documents (papers, technical reports, and documentation) on a per-dataset basis.
 This design enables questions about collection and processing methods, caveats, and recommended use conditions to be answered by retrieving passages from primary sources, while preserving an explicit link from each retrieved passage back to the dataset it documents.
 By coupling a dataset-specific literature corpus to a curated data catalog, the approach extends literature-grounded question answering systems \citep{Lala2023PaperQA,Skarlinski2024PaperQA2} into a setting where retrieved evidence can immediately inform downstream, tool-executed analysis.
 
-\paragraph{Retrieval over technical text.}
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/reference_bank.pdf}
+  \caption{Grounding the agent in the literature behind each dataset. A catalog entry is documented by one or more references (publications, technical reports, methods manuals). These documents are extracted, segmented into chunks, and indexed alongside catalog descriptors in a shared knowledge base; each chunk carries an explicit back-pointer to the dataset it documents. A methodological question---one whose answer is contained in a paper rather than in catalog metadata---is then served by the same hybrid retrieval channel that surfaces catalog entries, returning both the passage and the identity of the dataset it documents.}
+  \label{fig:refbank}
+\end{figure}
+
+\subsection{Retrieval and planning}
 Scientific methods and protocols are frequently expressed in specialized vocabulary and in numerically specific statements.
-To reduce failure modes in which semantically similar but technically irrelevant passages dominate retrieval, the knowledge base supports retrieval that combines semantic similarity with lexical matching for identifiers, numbers, and exact terms.
-Ranked lists from these complementary signals can be fused using standard rank-fusion approaches \citep{Bruch2023FusionFunctions}, improving robustness without requiring per-query tuning or assuming a single representation is sufficient for all query types.
+To reduce failure modes in which semantically similar but technically irrelevant passages dominate retrieval, the knowledge base supports retrieval that combines semantic similarity with lexical matching for identifiers, numbers, and exact terms; ranked lists from these complementary signals can be fused using standard rank-fusion approaches \citep{Bruch2023FusionFunctions}, improving robustness without requiring per-query tuning or assuming a single representation is sufficient for all query types.
+At each interaction turn, the resulting compact set of knowledge snippets is supplied to the agent and used to condition its planning, following the central RAG principle of coupling generation to an explicit, updateable memory in order to improve factuality and traceability \citep{Lewis2020RAG}.
+In \cmapagent, this conditioning serves not only descriptive responses (e.g., catalog interpretation) but also reduces error rates in tool selection and parameterization---for example, resolving the intended dataset table and variable before subsetting, visualization, or colocalization.
 
-\paragraph{Retrieval-augmented planning.}
-At each interaction turn, retrieval supplies a compact set of knowledge snippets that condition the agent's planning.
-This follows the central RAG principle of coupling generation to an explicit, updateable memory in order to improve factuality and traceability \citep{Lewis2020RAG}.
-In \cmapagent, this conditioning serves not only descriptive responses (e.g., catalog interpretation), but also reduces error rates in tool selection and parameterization (e.g., resolving the intended dataset table and variable before subsetting, visualization, or colocalization).
-
-\paragraph{Refreshability, provenance, and reproducibility.}
+\subsection{Refreshability and reproducibility}
 Because catalogs and their associated literature evolve, the knowledge base is designed to be refreshable: catalog descriptors can be re-synchronized and reference corpora can be augmented as new documentation becomes available, without retraining the language model.
 When retrieval is used, the agent can summarize or cite retrieved snippets to clarify why a dataset, variable, or processing choice was made.
-Outputs are returned as persistent artifacts (figures, data exports, and, when appropriate, executable code) that capture the operations performed at the time of the analysis; combined with the refreshability of the knowledge base, this allows an analysis to be re-executed against a later state of the catalog so that any change in its output is attributable to the underlying data rather than to the agent.
+Outputs are returned as persistent artifacts---figures, data exports, and, where appropriate, executable code---that capture the operations performed at the time of the analysis; combined with the refreshability of the knowledge base, this allows an analysis to be re-executed against a later state of the catalog so that any change in its output is attributable to the underlying data rather than to the agent.
